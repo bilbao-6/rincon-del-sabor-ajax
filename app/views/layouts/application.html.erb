@@ -7,9 +7,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_link_tag 'sb-admin-2.min', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
   </head>
-
-  <body>
-    <%= yield %>
+  <body id="page-top">
+    <% if user_signed_in? %>
+      <div id="wrapper">
+        <%= render "partials/siderbar" %>
+        <div id="content-wrapper" class="d-flex flex-column">
+          <div id="content">
+            <%= render "partials/topbar" %>
+              <div class="container-fluid contenedor">
+                <%= toastr_flash %>
+                <%= yield %>
+                <a class="scroll-to-top rounded" href="#page-top">
+                  <i class="fas fa-angle-up"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      <% else %>
+      <%= render "partials/navbar"%>
+        <%= toastr_flash %>
+        <%= yield %>
+      <%= render "partials/footer"%>
+    <% end %>
   </body>
 </html>

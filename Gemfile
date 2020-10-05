@@ -66,3 +66,18 @@ gem 'bootstrap', '~> 4.5', '>= 4.5.2'
 
 # jQuery
 gem 'jquery-rails'
+
+# simple form
+gem 'simple_form', '~> 5.0', '>= 5.0.3'
+
+# Iconos
+gem 'font_awesome5_rails'
+
+# Paginacion
+gem 'will_paginate-bootstrap4'
+
+# alertas toastr
+gem 'toastr-rails', '~> 1.0', '>= 1.0.3'
+
+# Auth users
+gem 'devise', '~> 4.7', '>= 4.7.3'
